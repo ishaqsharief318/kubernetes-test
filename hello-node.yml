@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: hello-node-0.0.2
+  name: hello-node-0.0.1
 spec:
   replicas: 1
   selector:
     app: hello-node
-    version: 0.0.2
+    version: 0.0.1
   template:
     metadata:
       labels:
         app: hello-node
-        version: 0.0.2
+        version: 0.0.1
     spec:
       containers:
-      - image: gcr.io/sojern-dev/hello-node:0.0.2
+      - image: gcr.io/sojern-dev/hello-node:0.0.1
         name: hello-node
         ports:
         - containerPort: 8081
