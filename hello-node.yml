@@ -8,10 +8,10 @@ spec:
     metadata:
       labels:
         app: hello-node
-        version: 0.0.2
+        version: v2.0.0
     spec:
       containers:
-      - image: gcr.io/sojern-dev/hello-node:0.0.2
+      - image: gcr.io/sojern-dev/hello-node:v2.0.0
         name: hello-node
         ports:
         - containerPort: 8081
