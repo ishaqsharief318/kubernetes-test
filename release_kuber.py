@@ -32,6 +32,9 @@ def release_kuber(context, app, version):
     try:
         try:
         # check whether a container with app name and provided version number exists
+            print version
+            version = version if version.startswith('v') else 'v'+version
+            print version
             container_tags = subprocess.check_output(['gsutil', 'ls', '{}/{}/tag_{}'.format(
                                 config.gs_path_to_app, app, version)])
             log.info('App and version check successful')
@@ -56,7 +59,6 @@ def release_kuber(context, app, version):
         # backend-controller      applier           applier_2.3.11    applier      3
         rc_name = subprocess.check_output(['kubectl','get', 'deployment',
                                            '{}'.format(app)]).split('\n')[1].split()[0]
-        print rc_name
 
         log.info('Applying New Configuration')
         # run rolling update
